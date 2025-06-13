@@ -38,6 +38,11 @@ export default function ChatInterface({}: ChatInterfaceProps) {
 
   useEffect(scrollToBottom, [messages, currentResponse]);
 
+  // Focus input field on component mount
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;

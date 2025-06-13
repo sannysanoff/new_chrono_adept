@@ -183,16 +183,16 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="py-6 px-4">
+      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="py-8 px-6">
         <div className="mx-auto" style={{ maxWidth: '800px' }}>
-          <form onSubmit={handleSubmit} className="flex space-x-2">
+          <form onSubmit={handleSubmit} className="flex space-x-4">
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 p-3 rounded-full focus:outline-none disabled:opacity-50"
+              className="flex-1 px-4 py-4 rounded-full focus:outline-none disabled:opacity-50"
               style={{ 
                 border: '1px solid #d1d5db', 
                 backgroundColor: '#f9fafb',
@@ -205,7 +205,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="px-6 py-3 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-8 py-4 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ backgroundColor: '#a855f7', color: '#ffffff' }}
               onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#9333ea')}
               onMouseLeave={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#a855f7')}

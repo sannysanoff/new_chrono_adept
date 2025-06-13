@@ -123,8 +123,8 @@ export default function ChatInterface({}: ChatInterfaceProps) {
                   ? '' 
                   : ''
               }`} style={message.role === 'user' 
-                ? { backgroundColor: '#a855f7', color: '#ffffff', borderRadius: '20px', paddingTop: '7px', paddingBottom: '7px', paddingLeft: '20px', paddingRight: '20px' }
-                : { backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', borderRadius: '20px', paddingTop: '7px', paddingBottom: '7px', paddingLeft: '20px', paddingRight: '20px' }
+                ? { backgroundColor: '#a855f7', color: '#ffffff', borderRadius: '20px', paddingTop: '3px', paddingBottom: '3px', paddingLeft: '20px', paddingRight: '20px' }
+                : { backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', borderRadius: '20px', paddingTop: '3px', paddingBottom: '3px', paddingLeft: '20px', paddingRight: '20px' }
               }>
                 {message.role === 'user' ? (
                   <p className="whitespace-pre-wrap">{message.content}</p>
@@ -154,7 +154,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
           
           {currentResponse && (
             <div className="flex justify-start">
-              <div className="max-w-xl" style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', borderRadius: '20px', paddingTop: '7px', paddingBottom: '7px', paddingLeft: '20px', paddingRight: '20px' }}>
+              <div className="max-w-xl" style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', borderRadius: '20px', paddingTop: '3px', paddingBottom: '3px', paddingLeft: '20px', paddingRight: '20px' }}>
                 <div className="prose prose-sm max-w-none">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}

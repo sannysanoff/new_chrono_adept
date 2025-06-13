@@ -96,7 +96,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
   };
 
   return (
-    <div className="flex flex-col" style={{ height: '100vh', maxHeight: '100vh', background: 'linear-gradient(135deg, #f8f4ff 0%, #f0e6ff 100%)' }}>
+    <div className="flex flex-col" style={{ height: '100vh', maxHeight: '100vh', overflow: 'hidden', background: 'linear-gradient(135deg, #f8f4ff 0%, #f0e6ff 100%)' }}>
       <div style={{ backgroundColor: '#6b46c1', borderBottom: '1px solid #8b5cf6' }} className="p-4">
         <div className="mx-auto" style={{ maxWidth: '800px' }}>
           <div className="flex items-center justify-between mb-2">
@@ -114,7 +114,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4" style={{ minHeight: 0 }}>
+      <div className="flex-1 overflow-y-auto p-4" style={{ minHeight: 0, maxHeight: 'calc(100vh - 140px)' }}>
         <div className="mx-auto space-y-4" style={{ maxWidth: '800px' }}>
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>

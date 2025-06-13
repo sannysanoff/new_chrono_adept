@@ -98,7 +98,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
   return (
     <div className="flex flex-col h-screen" style={{ background: 'linear-gradient(135deg, #f8f4ff 0%, #f0e6ff 100%)' }}>
       <div style={{ backgroundColor: '#6b46c1', borderBottom: '1px solid #8b5cf6' }} className="p-4">
-        <div className="max-w-2xl mx-auto">
+        <div className="mx-auto" style={{ maxWidth: '800px' }}>
           <div className="flex items-center justify-between mb-2">
             <h1 className="text-xl font-semibold" style={{ color: '#ffffff' }}>Я узнал о новой хронологии, и хочу вам рассказать...</h1>
             <button
@@ -115,7 +115,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4">
-        <div className="max-w-2xl mx-auto space-y-4">
+        <div className="mx-auto space-y-4" style={{ maxWidth: '800px' }}>
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`max-w-xl rounded-2xl p-4 ${
@@ -184,7 +184,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
       </div>
 
       <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="p-4">
-        <div className="max-w-2xl mx-auto">
+        <div className="mx-auto" style={{ maxWidth: '800px' }}>
           <form onSubmit={handleSubmit} className="flex space-x-2">
             <input
               ref={inputRef}

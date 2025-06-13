@@ -214,7 +214,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
               style={{ 
                 width: '60px',
                 height: '60px',
-                borderRadius: '50%',
+                borderRadius: '12px',
                 backgroundColor: '#a855f7', 
                 color: '#ffffff',
                 border: 'none',
@@ -223,13 +223,13 @@ export default function ChatInterface({}: ChatInterfaceProps) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '14px',
+                fontSize: '20px',
                 fontWeight: '500'
               }}
               onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#9333ea')}
               onMouseLeave={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#a855f7')}
             >
-              {isLoading ? '...' : 'Send'}
+              {isLoading ? '...' : '➤'}
             </button>
           </form>
         </div>

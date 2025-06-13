@@ -183,7 +183,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="py-8 px-6">
+      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="py-12 px-8">
         <div className="mx-auto" style={{ maxWidth: '800px' }}>
           <form onSubmit={handleSubmit} className="flex space-x-4">
             <input

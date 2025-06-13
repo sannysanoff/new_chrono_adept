@@ -183,16 +183,26 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="py-16 px-12">
+      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', paddingTop: '64px', paddingBottom: '64px', paddingLeft: '48px', paddingRight: '48px' }}>
         <div className="mx-auto" style={{ maxWidth: '800px' }}>
-          <form onSubmit={handleSubmit} className="flex space-x-4">
+          <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '16px' }}>
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 px-4 py-4 rounded-full focus:outline-none disabled:opacity-50"
+              style={{ 
+                flex: 1,
+                paddingLeft: '16px',
+                paddingRight: '16px', 
+                paddingTop: '16px',
+                paddingBottom: '16px',
+                borderRadius: '9999px',
+                outline: 'none',
+                border: '1px solid #d1d5db', 
+                backgroundColor: '#f9fafb'
+              }}
               style={{ 
                 border: '1px solid #d1d5db', 
                 backgroundColor: '#f9fafb',
@@ -205,7 +215,18 @@ export default function ChatInterface({}: ChatInterfaceProps) {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="px-8 py-4 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ 
+                paddingLeft: '32px',
+                paddingRight: '32px',
+                paddingTop: '16px', 
+                paddingBottom: '16px',
+                borderRadius: '9999px',
+                backgroundColor: '#a855f7', 
+                color: '#ffffff',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s'
+              }}
               style={{ backgroundColor: '#a855f7', color: '#ffffff' }}
               onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#9333ea')}
               onMouseLeave={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#a855f7')}

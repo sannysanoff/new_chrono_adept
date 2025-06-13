@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Move Next.js dev indicator to right side and higher */
+div[data-nextjs-toast-errors] {
+  right: 20px !important;
+  left: auto !important;
+  top: 10% !important;
+}
+
+/* Alternative selector for Next.js development indicator */
+[data-nextjs-toast] {
+  right: 20px !important;
+  left: auto !important;
+  top: 10% !important;
+}
+
+/* Generic selector for Next.js development overlay elements */
+div[style*="position: fixed"][style*="z-index"] {
+  right: 20px !important;
+  left: auto !important;
+  top: 10% !important;
+}

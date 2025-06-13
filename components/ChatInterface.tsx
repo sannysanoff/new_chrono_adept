@@ -96,14 +96,17 @@ export default function ChatInterface({}: ChatInterfaceProps) {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
-      <div className="bg-white border-b border-gray-200 p-4">
-        <div className="max-w-4xl mx-auto">
+    <div className="flex flex-col h-screen" style={{ background: 'linear-gradient(135deg, #f8f4ff 0%, #f0e6ff 100%)' }}>
+      <div style={{ backgroundColor: '#6b46c1', borderBottom: '1px solid #8b5cf6' }} className="p-4">
+        <div className="max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-xl font-semibold text-gray-800">Я узнал о новой хронологии, и хочу вам рассказать...</h1>
+            <h1 className="text-xl font-semibold" style={{ color: '#ffffff' }}>Я узнал о новой хронологии, и хочу вам рассказать...</h1>
             <button
               onClick={handleClear}
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              className="px-4 py-2 rounded-lg transition-colors"
+              style={{ backgroundColor: '#ec4899', color: '#ffffff' }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#db2777'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ec4899'}
             >
               Clear Chat
             </button>
@@ -112,14 +115,17 @@ export default function ChatInterface({}: ChatInterfaceProps) {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4">
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-2xl mx-auto space-y-4">
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`max-w-3xl rounded-lg p-4 ${
+              <div className={`max-w-xl rounded-2xl p-4 ${
                 message.role === 'user' 
-                  ? 'bg-blue-500 text-white' 
-                  : 'bg-white border border-gray-200'
-              }`}>
+                  ? '' 
+                  : ''
+              }`} style={message.role === 'user' 
+                ? { backgroundColor: '#a855f7', color: '#ffffff' }
+                : { backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }
+              }>
                 {message.role === 'user' ? (
                   <p className="whitespace-pre-wrap">{message.content}</p>
                 ) : (
@@ -148,7 +154,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
           
           {currentResponse && (
             <div className="flex justify-start">
-              <div className="max-w-3xl rounded-lg p-4 bg-white border border-gray-200">
+              <div className="max-w-xl rounded-2xl p-4" style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
                 <div className="prose prose-sm max-w-none">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
@@ -167,7 +173,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
                     {currentResponse}
                   </ReactMarkdown>
                 </div>
-                <div className="mt-2 flex items-center text-gray-400">
+                <div className="mt-2 flex items-center" style={{ color: '#a855f7' }}>
                   <div className="animate-pulse">●</div>
                 </div>
               </div>
@@ -177,8 +183,8 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div className="bg-white border-t border-gray-200 p-4">
-        <div className="max-w-4xl mx-auto">
+      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }} className="p-4">
+        <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="flex space-x-2">
             <input
               ref={inputRef}
@@ -186,13 +192,23 @@ export default function ChatInterface({}: ChatInterfaceProps) {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 p-3 rounded-full focus:outline-none disabled:opacity-50"
+              style={{ 
+                border: '1px solid #d1d5db', 
+                backgroundColor: '#f9fafb',
+                focusRingColor: '#a855f7'
+              }}
+              onFocus={(e) => e.currentTarget.style.borderColor = '#a855f7'}
+              onBlur={(e) => e.currentTarget.style.borderColor = '#d1d5db'}
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-6 py-3 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ backgroundColor: '#a855f7', color: '#ffffff' }}
+              onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#9333ea')}
+              onMouseLeave={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#a855f7')}
             >
               {isLoading ? 'Sending...' : 'Send'}
             </button>

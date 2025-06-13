@@ -183,7 +183,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', paddingTop: '64px', paddingBottom: '64px', paddingLeft: '48px', paddingRight: '48px' }}>
+      <div style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb', paddingTop: '24px', paddingBottom: '24px', paddingLeft: '48px', paddingRight: '48px' }}>
         <div className="mx-auto" style={{ maxWidth: '800px' }}>
           <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '16px' }}>
             <input

@@ -118,13 +118,13 @@ export default function ChatInterface({}: ChatInterfaceProps) {
         <div className="mx-auto space-y-4" style={{ maxWidth: '800px' }}>
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`max-w-xl rounded-2xl p-4 ${
+              <div className={`max-w-xl p-4 ${
                 message.role === 'user' 
                   ? '' 
                   : ''
               }`} style={message.role === 'user' 
-                ? { backgroundColor: '#a855f7', color: '#ffffff' }
-                : { backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }
+                ? { backgroundColor: '#a855f7', color: '#ffffff', borderRadius: '20px' }
+                : { backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', borderRadius: '20px' }
               }>
                 {message.role === 'user' ? (
                   <p className="whitespace-pre-wrap">{message.content}</p>
@@ -154,7 +154,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
           
           {currentResponse && (
             <div className="flex justify-start">
-              <div className="max-w-xl rounded-2xl p-4" style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
+              <div className="max-w-xl p-4" style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)', borderRadius: '20px' }}>
                 <div className="prose prose-sm max-w-none">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}

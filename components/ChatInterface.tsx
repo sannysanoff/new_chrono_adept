@@ -194,6 +194,7 @@ export default function ChatInterface({}: ChatInterfaceProps) {
               placeholder="Type your message..."
               style={{ 
                 flex: 1,
+                minWidth: '80ch',
                 paddingLeft: '16px',
                 paddingRight: '16px', 
                 paddingTop: '16px',
@@ -203,11 +204,6 @@ export default function ChatInterface({}: ChatInterfaceProps) {
                 border: '1px solid #d1d5db', 
                 backgroundColor: '#f9fafb'
               }}
-              style={{ 
-                border: '1px solid #d1d5db', 
-                backgroundColor: '#f9fafb',
-                focusRingColor: '#a855f7'
-              }}
               onFocus={(e) => e.currentTarget.style.borderColor = '#a855f7'}
               onBlur={(e) => e.currentTarget.style.borderColor = '#d1d5db'}
               disabled={isLoading}
@@ -216,22 +212,24 @@ export default function ChatInterface({}: ChatInterfaceProps) {
               type="submit"
               disabled={isLoading || !input.trim()}
               style={{ 
-                paddingLeft: '32px',
-                paddingRight: '32px',
-                paddingTop: '16px', 
-                paddingBottom: '16px',
-                borderRadius: '9999px',
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
                 backgroundColor: '#a855f7', 
                 color: '#ffffff',
                 border: 'none',
                 cursor: 'pointer',
-                transition: 'background-color 0.2s'
+                transition: 'background-color 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '14px',
+                fontWeight: '500'
               }}
-              style={{ backgroundColor: '#a855f7', color: '#ffffff' }}
               onMouseEnter={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#9333ea')}
               onMouseLeave={(e) => !e.currentTarget.disabled && (e.currentTarget.style.backgroundColor = '#a855f7')}
             >
-              {isLoading ? 'Sending...' : 'Send'}
+              {isLoading ? '...' : 'Send'}
             </button>
           </form>
         </div>
